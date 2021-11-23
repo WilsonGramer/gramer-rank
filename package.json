@@ -13,6 +13,7 @@
     "react-latex-next": "^2.1.0",
     "react-mathquill": "^1.0.2",
     "react-scripts": "4.0.3",
+    "tex-math-parser": "^2.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

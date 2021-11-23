@@ -4,6 +4,7 @@ import * as math from "mathjs";
 import Latex from "react-latex-next";
 import "katex/dist/katex.min.css";
 import * as mathquill from "react-mathquill";
+import { parseTex } from "tex-math-parser";
 
 mathquill.addStyles();
 
@@ -61,7 +62,7 @@ const App = () => {
 
 export const gramerRank = (f) => {
     try {
-        const steps = [math.simplify(f)];
+        const steps = [parseTex(f)];
 
         while (_.uniqBy(steps, (step) => step.toString()).length === steps.length) {
             const df = math.derivative(_.last(steps), "x");

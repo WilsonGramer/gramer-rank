@@ -60,11 +60,16 @@ const App = () => {
     );
 };
 
-export const gramerRank = (f) => {
+const maxSteps = 50;
+
+const gramerRank = (f) => {
     try {
         const steps = [parseTex(f)];
 
-        while (_.uniqBy(steps, (step) => step.toString()).length === steps.length) {
+        while (
+            _.uniqBy(steps, (step) => step.toString()).length === steps.length &&
+            steps.length < maxSteps + 2
+        ) {
             const df = math.derivative(_.last(steps), "x");
             steps.push(df);
         }
